@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#flipbook-wrapper {
+  /* position: relative;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px); */
+  width: 1500px;
+  height: 750px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#flipbook {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#flipbook .page {
+  width: 50%;
+  height: 100%;
+}
+
+#flipbook .page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.click-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 10;
+  background: transparent;
+  cursor: pointer;
+}
+
+.prev-zone {
+  left: 0;
+}
+
+.next-zone {
+  right: 0;
+}
+
+#intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#heart {
+  width: 500px;
+  height: 500px;
+  cursor: pointer;
+  animation: pulse 1.2s infinite;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#intro-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+

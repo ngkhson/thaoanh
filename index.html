@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Book</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="libs/turn.min.js"></script>
+</head>
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="OiMatRiu.mp3" type="audio/mpeg">
+  </audio> 
+  
+  <div id="intro-screen">
+    <img id="heart" src="heart.png" alt="heart">
+  </div>
+
+      <div id="flipbook-wrapper">
+        <!-- Nút trái -->
+        <!-- <button id="prev" class="nav-button prev-button">← Prev</button> -->
+  
+        <!-- Flipbook -->
+        <div id="flipbook">
+            <div class="page"><img src="pages/cover.jpg" alt=""></div>
+            <div class="page"><img src="pages/page1.jpg" alt=""></div>
+            <div class="page"><img src="pages/page2.jpg" alt=""></div>
+            <div class="page"><img src="pages/page3.jpg" alt=""></div>
+            <div class="page"><img src="pages/page4.jpg" alt=""></div>
+            <div class="page"><img src="pages/page5.jpg" alt=""></div>
+            <div class="page"><img src="pages/page6.jpg" alt=""></div>
+            <div class="page"><img src="pages/page7.jpg" alt=""></div>
+            <div class="page"><img src="pages/page8.jpg" alt=""></div>
+            <div class="page"><img src="pages/page9.jpg" alt=""></div>
+            <div class="page"><img src="pages/page10.jpg" alt=""></div>
+            <div class="page"><img src="pages/page11.jpg" alt=""></div>
+            <div class="page"><img src="pages/page12.jpg" alt=""></div>
+            <div class="page"><img src="pages/page23.jpg" alt=""></div>
+            <div class="page"><img src="pages/backcover.jpg" alt=""></div>
+        </div>
+  
+        <!-- Nút phải -->
+        <!-- <button id="next" class="nav-button next-button">Next →</button> -->
+
+         <!-- Vùng click trong suốt -->
+        <div class="click-zone prev-zone" id="prev"></div>
+        <div class="click-zone next-zone" id="next"></div>
+      </div>
+   
+    <script src="script.js"></script>
+    <script>
+  const heart = document.getElementById("heart");
+  const intro = document.getElementById("intro-screen");
+  const music = document.getElementById("bg-music");
+
+  heart.addEventListener("click", () => {
+    // Hiệu ứng biến mất trái tim
+    heart.style.transform = "scale(0)";
+    heart.style.opacity = "0";
+
+    // Sau đó 0.6s thì ẩn màn hình đen và phát nhạc
+    setTimeout(() => {
+      intro.classList.add("fade-out");
+      if (music && music.paused) music.play();
+    }, 600);
+  });
+</script>
+</body>
+</html>
